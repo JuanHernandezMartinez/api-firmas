@@ -1,31 +1,30 @@
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Firma } from './firma.entity';
 
 @Entity('pacientes')
 export class Paciente {
   @PrimaryGeneratedColumn()
   id_p: number;
   @Column()
-  curp: string;
+  curp_p: string;
   @Column()
-  nombre: string;
+  nombre_p: string;
   @Column()
-  apellidoPaterno: string;
+  apaterno_p: string;
   @Column()
-  apellidoMaterno: string;
+  amaterno_p: string;
   @Column()
-  telefono: string;
+  tCelular_p: string;
   @Column()
-  email: string;
+  email_p: string;
   @Column()
-  sexo: number;
+  sexo_p: number;
   @Column()
-  fechaNacimiento: string;
+  fNac_p: string;
   @Column()
-  activo: boolean;
-  @Column()
-  fechaRegistro: string;
-  @Column()
-  nombreCompleto: string;
-  @OneToOne('')
-  firmaId: number;
+  fechaR_p: string;
+  @OneToOne(() => Firma)
+  @JoinColumn({ name: "id_firma" })
+   id_firma:Firma;
 }
+

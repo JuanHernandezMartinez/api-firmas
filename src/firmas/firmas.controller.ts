@@ -12,11 +12,11 @@ export class FirmasController {
   constructor(private firmaService: FirmasService) {}
 
   @Post('save')
-  async guardarFirma(@Body() body: { data: string }): Promise<any> {
-    const guardando = await this.firmaService.guardarFirma(body.data);
-    if(!guardando){
+  async guardarFirma(@Body() { idPaciente, data }): Promise<any> {
+    const guardando = await this.firmaService.guardarFirma(idPaciente, data);
+    if (!guardando) {
       throw new HttpException('Error', HttpStatus.BAD_REQUEST);
     }
-    return {respuesta:"Firma guardada"};
+    return { respuesta: 'Firma guardada' };
   }
 }

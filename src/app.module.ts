@@ -13,7 +13,7 @@ import { Firma } from './model/firma.entity';
       username: 'root',
       password: '',
       database: 'radiology2',
-      entities: [Firma],
+      entities: [Firma,Paciente],
     }),
     FirmasModule,
   ],
